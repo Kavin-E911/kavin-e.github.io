@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -49,7 +49,7 @@ const ContactSection = () => {
               
               <div className="space-y-4">
                 <a
-                  href="mailto:kavin@example.com"
+                  href="mailto:ekavin65@gmail.com"
                   className="flex items-center gap-4 p-4 rounded-xl hover:bg-primary/10 transition-colors group"
                 >
                   <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -57,7 +57,20 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">kavin@example.com</p>
+                    <p className="text-foreground">ekavin65@gmail.com</p>
+                  </div>
+                </a>
+
+                <a
+                  href="tel:+919750010881"
+                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-primary/10 transition-colors group"
+                >
+                  <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone</p>
+                    <p className="text-foreground">+91 9750010881</p>
                   </div>
                 </a>
 
@@ -67,7 +80,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">India</p>
+                    <p className="text-foreground">Tiruppur, Tamil Nadu, India</p>
                   </div>
                 </div>
               </div>
@@ -78,28 +91,20 @@ const ContactSection = () => {
               <h3 className="text-xl font-semibold font-display mb-6">Follow Me</h3>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Kavin-E911"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110 group"
+                  className="p-4 glass rounded-xl hover:scale-110 transition-all duration-300 group"
                 >
                   <Github className="h-6 w-6 text-foreground group-hover:text-primary transition-colors" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/kavin-e-7258252a1/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110 group"
+                  className="p-4 glass rounded-xl hover:scale-110 transition-all duration-300 group"
                 >
                   <Linkedin className="h-6 w-6 text-foreground group-hover:text-primary transition-colors" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110 group"
-                >
-                  <Twitter className="h-6 w-6 text-foreground group-hover:text-primary transition-colors" />
                 </a>
               </div>
             </div>

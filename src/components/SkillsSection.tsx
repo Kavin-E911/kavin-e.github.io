@@ -1,14 +1,50 @@
-import { Code, FileCode, Palette, Database, GitBranch, Terminal, Cpu, Brain } from 'lucide-react';
-
-const skills = [
-  { name: 'HTML', icon: FileCode, level: 95 },
-  { name: 'CSS', icon: Palette, level: 90 },
-  { name: 'JavaScript', icon: Code, level: 88 },
-  { name: 'Python', icon: Terminal, level: 85 },
-  { name: 'React', icon: Code, level: 85 },
-  { name: 'Git & GitHub', icon: GitBranch, level: 82 },
-  { name: 'UI/UX', icon: Palette, level: 80 },
-  { name: 'Machine Learning', icon: Brain, level: 70 },
+const skillCategories = [
+  {
+    title: 'Programming Languages',
+    emoji: '💻',
+    bgColor: 'bg-card',
+    borderColor: 'border-border',
+    skills: [
+      { name: 'Java', icon: '☕' },
+      { name: 'Python', icon: '🐍' },
+      { name: 'C', icon: '⚙️' },
+    ],
+  },
+  {
+    title: 'Web Technologies',
+    emoji: '🌐',
+    bgColor: 'bg-card',
+    borderColor: 'border-border',
+    skills: [
+      { name: 'HTML5', icon: '🟧' },
+      { name: 'CSS3', icon: '🔵' },
+      { name: 'JavaScript', icon: '🟨' },
+      { name: 'React.js', icon: '⚛️' },
+      { name: 'Flask', icon: '🌶️' },
+    ],
+  },
+  {
+    title: 'Databases & Tools',
+    emoji: '🛠️',
+    bgColor: 'bg-card',
+    borderColor: 'border-border',
+    skills: [
+      { name: 'SQL', icon: '🗄️' },
+      { name: 'PL/SQL', icon: '📋' },
+      { name: 'MongoDB', icon: '🍃' },
+      { name: 'Power BI', icon: '📊' },
+    ],
+  },
+  {
+    title: 'DSA',
+    emoji: '🧠',
+    bgColor: 'bg-card',
+    borderColor: 'border-border',
+    skills: [
+      { name: 'Java DSA', icon: '☕' },
+      { name: 'C DSA', icon: '⚙️' },
+    ],
+  },
 ];
 
 const SkillsSection = () => {
@@ -17,40 +53,43 @@ const SkillsSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="section-heading">
-            <span className="gradient-text">Skills</span>
+            <span className="gradient-text">Tech Stack</span>
           </h2>
           <p className="section-subheading">
-            Technologies and tools I work with to bring ideas to life
+            Technologies and tools I use to bring ideas to life
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
+        <div className="max-w-5xl mx-auto space-y-6">
+          {skillCategories.map((category, index) => (
             <div
-              key={skill.name}
-              className="skill-bubble group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={category.title}
+              className={`rounded-2xl border ${category.borderColor} ${category.bgColor} p-6 animate-fade-in`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                
-                {/* Icon container */}
-                <div className="relative w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 group-hover:border-primary/50 transition-all">
-                  <skill.icon className="h-8 w-8 text-primary" />
+              {/* Category header */}
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{category.emoji}</span>
+                  <h3 className="text-lg font-bold text-foreground">{category.title}</h3>
                 </div>
+                <span className="text-sm text-muted-foreground px-3 py-1 rounded-full bg-background/60 border border-border/50">
+                  {category.skills.length} skills
+                </span>
               </div>
-              
-              <span className="text-foreground font-medium text-center">{skill.name}</span>
-              
-              {/* Skill level bar */}
-              <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-1000"
-                  style={{ width: `${skill.level}%` }}
-                />
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-background/80 border border-border/50 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 cursor-default"
+                  >
+                    <span className="text-lg">{skill.icon}</span>
+                    <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                  </div>
+                ))}
               </div>
-              <span className="text-xs text-muted-foreground">{skill.level}%</span>
             </div>
           ))}
         </div>

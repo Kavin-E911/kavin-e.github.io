@@ -33,52 +33,56 @@ const HeroSection = () => {
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
                 Hi, I'm{' '}
-                <span className="gradient-text neon-text">Kavin</span>
-                <br />
-                <span className="gradient-text">Vikraman</span>
+                <span className="gradient-text">Kavin</span>
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground">
-                Full Stack Developer | UI/UX Designer
+                Full Stack Developer | Problem Solver
               </p>
             </div>
 
             <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
-              I craft fast, reliable web applications with clean code and stunning design. 
-              Passionate about solving complex problems and creating seamless user experiences 
-              that leave a lasting impression.
+              I am Kavin E, a passionate and self-motivated Full-Stack Developer with a strong foundation in programming and problem-solving. Proficient in Java, Python, and C, I actively enhance my analytical and logical thinking skills by solving complex problems on platforms such as LeetCode, GeeksforGeeks, and HackerRank. Eager to apply my technical expertise to real-world IT challenges and continuously grow as a skilled software professional.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="lg" className="group">
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                Resume
-              </Button>
-              <Button variant="heroOutline" size="lg" className="group">
-                Reach Me
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <a href="/Kavin-resume.pdf" download>
+                <Button variant="hero" size="lg" className="group">
+                  <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                  Resume
+                </Button>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kavin-e-7258252a1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="heroOutline" size="lg" className="group">
+                  Reach Me
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </a>
             </div>
 
             <div className="flex gap-4 pt-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Kavin-E911"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110"
+                className="p-3 glass rounded-xl hover:scale-110 transition-all duration-300"
               >
                 <Github className="h-6 w-6 text-foreground" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/kavin-e-7258252a1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110"
+                className="p-3 glass rounded-xl hover:scale-110 transition-all duration-300"
               >
                 <Linkedin className="h-6 w-6 text-foreground" />
               </a>
               <a
-                href="mailto:kavin@example.com"
-                className="p-3 glass rounded-xl hover:neon-glow transition-all duration-300 hover:scale-110"
+                href="mailto:ekavin65@gmail.com"
+                className="p-3 glass rounded-xl hover:scale-110 transition-all duration-300"
               >
                 <Mail className="h-6 w-6 text-foreground" />
               </a>
@@ -91,18 +95,14 @@ const HeroSection = () => {
             
             {/* Profile Photo Container */}
             <div className="relative z-10">
-              {/* Outer glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary blur-2xl opacity-30 animate-glow-pulse" />
-              
-              {/* Profile ring */}
-              <div className="profile-ring">
-                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-card">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-8xl font-display font-bold gradient-text">KV</span>
-                  </div>
+              {/* Profile photo */}
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-card border-4 border-primary/30 shadow-2xl">
+                  <img
+                    src="/profile.png"
+                    alt="Kavin E"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
             </div>
           </div>
         </div>

@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display text-xl font-bold gradient-text">
-            Kavin Vikraman
+            Kavin E
           </div>
           
           <p className="text-muted-foreground text-sm flex items-center gap-2">

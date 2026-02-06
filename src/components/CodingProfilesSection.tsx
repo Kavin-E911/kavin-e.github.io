@@ -1,27 +1,29 @@
-import { Trophy, Star, Flame, Target, Code, Award } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const profiles = [
   {
-    name: 'HackerRank',
-    icon: Code,
-    stats: [
-      { label: 'Problems Solved', value: '150+' },
-      { label: 'Badges Earned', value: '12' },
-      { label: 'Stars', value: '5★' },
-    ],
-    color: 'from-green-500 to-emerald-600',
-    link: 'https://hackerrank.com',
+    name: 'LeetCode',
+    emoji: '✨',
+    color: 'from-yellow-400 to-orange-500',
+    borderColor: 'border-yellow-300/50 hover:border-yellow-400/80',
+    link: 'https://leetcode.com/u/itskavin_e/',
+    image: '/coding picture/leetcode.png',
   },
   {
-    name: 'LeetCode',
-    icon: Target,
-    stats: [
-      { label: 'Problems Solved', value: '100+' },
-      { label: 'Contest Rating', value: '1500+' },
-      { label: 'Streak', value: '30 days' },
-    ],
-    color: 'from-yellow-500 to-orange-600',
-    link: 'https://leetcode.com',
+    name: 'GeeksforGeeks',
+    emoji: '📗',
+    color: 'from-emerald-400 to-green-600',
+    borderColor: 'border-green-300/50 hover:border-green-400/80',
+    link: 'https://www.geeksforgeeks.org/profile/ekavin',
+    image: '/coding picture/geekforgeeks.png',
+  },
+  {
+    name: 'HackerRank',
+    emoji: '📘',
+    color: 'from-green-400 to-emerald-600',
+    borderColor: 'border-emerald-300/50 hover:border-emerald-400/80',
+    link: 'https://www.hackerrank.com/profile/23CS083_kpriet',
+    image: '/coding picture/hackerrank.png',
   },
 ];
 
@@ -34,64 +36,47 @@ const CodingProfilesSection = () => {
             <span className="gradient-text">Coding Profiles</span>
           </h2>
           <p className="section-subheading">
-            My journey in competitive programming and problem-solving
+            My journey in competitive programming and problem solving
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {profiles.map((profile, index) => (
-            <a
-              key={profile.name}
-              href={profile.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-card group cursor-pointer animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Header */}
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`p-4 rounded-2xl bg-gradient-to-br ${profile.color} opacity-80 group-hover:opacity-100 transition-opacity`}>
-                  <profile.icon className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold font-display text-foreground group-hover:text-primary transition-colors">
-                    {profile.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">View Profile →</p>
-                </div>
-              </div>
-
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4">
-                {profile.stats.map((stat) => (
-                  <div key={stat.label} className="text-center p-3 rounded-xl bg-muted/50">
-                    <p className="text-2xl font-bold text-primary">{stat.value}</p>
-                    <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Trophy className="h-24 w-24 text-primary" />
-              </div>
-            </a>
-          ))}
-        </div>
-
-        {/* Achievement badges */}
-        <div className="flex flex-wrap justify-center gap-4 mt-12">
-          {[
-            { icon: Star, label: '5★ Problem Solver' },
-            { icon: Flame, label: '30 Day Streak' },
-            { icon: Award, label: 'Top 10%' },
-          ].map((badge) => (
             <div
-              key={badge.label}
-              className="flex items-center gap-2 px-4 py-2 glass rounded-full"
+              key={profile.name}
+              className={`group rounded-2xl overflow-hidden bg-card border ${profile.borderColor} shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in flex flex-col`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <badge.icon className="h-5 w-5 text-primary" />
-              <span className="text-sm text-foreground">{badge.label}</span>
+              {/* Screenshot image */}
+              <div className="relative overflow-hidden bg-muted/30 p-4">
+                <div className="rounded-xl overflow-hidden shadow-md">
+                  <img
+                    src={profile.image}
+                    alt={`${profile.name} Profile`}
+                    className="w-full h-52 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+
+              {/* Card content */}
+              <div className="p-6 flex flex-col flex-1 text-center">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-6 flex items-center justify-center gap-2">
+                  <span>{profile.emoji}</span>
+                  {profile.name}
+                </h3>
+
+                <div className="mt-auto">
+                  <a
+                    href={profile.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r ${profile.color} text-white font-medium text-sm hover:opacity-90 transition-opacity shadow-md hover:shadow-lg`}
+                  >
+                    View Profile
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
             </div>
           ))}
         </div>
