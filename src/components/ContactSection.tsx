@@ -5,21 +5,56 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
+const WEB3FORMS_ACCESS_KEY = 'ae81cedb-a9de-4305-aa6f-42c6227a7bf2';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Portfolio Message from ${formData.name}`,
+          from_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        throw new Error('Failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try again or email me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -147,6 +182,22 @@ const ContactSection = () => {
               </div>
 
               <div>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2 text-muted-foreground">
+                  Your Phone Number
+                </label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="+91 9876543210"
+                  required
+                  className="bg-muted/50 border-border focus:border-primary"
+                />
+              </div>
+
+              <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2 text-muted-foreground">
                   Your Message
                 </label>
@@ -163,9 +214,9 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <Button type="submit" variant="hero" size="lg" className="w-full group">
+            <Button type="submit" variant="hero" size="lg" className="w-full group" disabled={isSubmitting}>
               <Send className="mr-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </form>
         </div>
