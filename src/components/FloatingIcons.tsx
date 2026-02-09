@@ -13,7 +13,7 @@ const icons = [
 
 const FloatingIcons = () => {
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none z-20">
       {icons.map(({ Icon, delay, position }, index) => (
         <div
           key={index}

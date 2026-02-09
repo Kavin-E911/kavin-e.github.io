@@ -20,11 +20,17 @@ const Index = () => {
       <Navbar />
       <main className="relative">
         <HeroSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" /></div>
         <EducationSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" /></div>
         <SkillsSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-purple-400/50 to-transparent" /></div>
         <ProjectsSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent" /></div>
         <CodingProfilesSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" /></div>
         <CertificationsSection />
+        <div className="container mx-auto px-6"><div className="h-[2px] bg-gradient-to-r from-transparent via-pink-400/50 to-transparent" /></div>
         <ContactSection />
       </main>
       <Footer />
